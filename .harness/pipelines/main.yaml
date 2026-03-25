@@ -37,10 +37,10 @@ pipeline:
                   identifier: Run_1
                   spec:
                     connectorRef: dockerhub
-                    image: alpine
+                    image: node:22
                     shell: Sh
                     command: |-
-                      echo "Hello world"
-                      echo "$SECRET_KEY"
+                      yarn
+                      yarn build
                     envVariables:
                       SECRET_KEY: <+secrets.getValue('super_secret')>
